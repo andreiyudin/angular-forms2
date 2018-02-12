@@ -1,0 +1,7 @@
+<div class="alert" [ngClass]="{'alert-success':alertMessage.type=='success','alert-danger':alertMessage.type=='danger'}"
+  role="alert" *ngIf="alertMessage.message">
+  <strong>{{alertMessage.message}}</strong>
+  <div class="pull-right" >
+    <i class="fa fa-close " (click)="alertMessage.message=''"></i>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="alert alert-danger" role="alert" [hidden]="!msgShown">
+  <strong>Erreur nom utilisateur ou mot de passe</strong>
+  <div class="pull-right"><i class="fa fa-close " (click)="hideMsg()"></i></div>
+</div>
+
+<div id="page">
+  <div class="login">
+    <form (ngSubmit)="login()" [formGroup]="form">
+      <div class="form-group">
+        <label>Utilisateur</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{'error':!form.controls['username'].valid && (form.controls['username'].touched || formSubmitted)}">
+      </div>
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input type="password" name="password" formControlName="password" class="form-control" [ngClass]="{'error':!form.controls['password'].valid && (form.controls['password'].touched || formSubmitted)}">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-default btn-medium">Connecter</button>
+      </div>
+    </form>
+  </div>
+</div>

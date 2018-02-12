@@ -1,0 +1,14 @@
+<form class="form-inline" [formGroup]="dateFilterForm" >
+  <label for="exampleInputEmail1">De: </label>
+  <input class="form-control text-right" type="date" formControlName="from" (change)="changeDate()">
+  <label for="exampleInputEmail1">À:</label>
+  <input class="form-control text-right" type="date" formControlName="to" (change)="changeDate()">
+  <label for="exampleInputEmail1">Retour de: </label>
+  <input class="form-control text-right" type="number" style="width:5em;margin-right:1em" formControlName="nbPeriods" (change)="changePeriodRange()" >
+  <select class="form-control period-filter" name="" id="" formControlName="period" (change)="changePeriodRange()">
+    <option value="Dernier">Dernier</option>
+    <option value="Jour">Jour</option>
+    <option value="Semaine">Semaine</option>
+    <option value="Mois">Mois</option>
+  </select>
+</form>

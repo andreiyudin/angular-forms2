@@ -1,0 +1,11 @@
+.context-menu{
+    width:10em;
+    background-color:lightgrey;
+    position: fixed;
+    z-index:1000;
+}
+
+li:hover {
+    color: white;
+    background-color:#0275D8;
+}

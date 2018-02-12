@@ -1,0 +1,51 @@
+<alert [alertMessage]="alertMessage"></alert>
+
+<form [formGroup]="noteForm" (ngSubmit)="save(noteForm)" novalidate>
+  <div class="container" style="width:100%;margin-top:1em">
+    <div class="row">
+      <div class="col">
+        <button  type="submit" class="btn btn-secondary pull-left" [ngClass]="{'btn-success':noteForm.valid&&noteForm.dirty,'btn-secondary':noteForm.pristine,'btn-danger':!noteForm.valid&&noteForm.touched }">
+          <i class="fa f fa-save"></i>
+        </button>
+      </div>
+      <div class="col">
+        <h3 class="text-center">Notes</h3>
+      </div>
+      <div class="col">
+        <button type="button" [routerLink]="['/home/notes/historical']" class="btn btn-secondary pull-right">
+          <i class="fa f fa-clock-o fa-lg"></i>
+        </button>
+        <button type="button" (click)='add()' class="btn btn-secondary pull-right" style="margin-right:0.5em">
+          <i class="fa f fa-plus"></i>
+        </button>
+        <button type="button" *ngIf="userInfo.admin && noteForm.controls['noteId'].value" (click)='delete()' class="btn btn-secondary pull-right" style="margin-right:0.5em">
+          <i class="fa f fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top:1em">
+    <div class="form-group row  justify-content-md-center">
+      <label for="example-text-input" class="col-2 col-form-label text-right">Date & Heure:</label>
+      <div class="col-4">
+        <input class="form-control" type="datetime-local" formControlName="datetime" id="example-text-input">
+      </div>
+    </div>
+    <div class="form-group row justify-content-md-center">
+      <label for="example-text-input" class="col-2 col-form-label text-right">Opérateur:</label>
+      <div class="col-4">
+        <input class="form-control" formControlName="operator" type="text" id="example-text-input">
+      </div>
+    </div>
+    <div class="form-group row justify-content-md-center">
+      <label for="example-text-input" class="col-2 col-form-label text-right">Description:</label>
+      <div class="col-4">
+        <textarea rows="8" cols="50" class="form-control" formControlName="description" type="text" id="example-text-input"></textarea>
+      </div>
+    </div>
+  </div>
+</form>
+
+<confirm-popup *ngIf="confirmPopup.show" [confirmPopup]="confirmPopup">
+  Voulez-vous supprimer la note ?
+</confirm-popup>

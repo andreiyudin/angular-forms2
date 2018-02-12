@@ -1,0 +1,42 @@
+<div class="container" style="width:100%;margin-top:1em">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+      <h3 class="text-center">Aimants - Historique</h3>
+    </div>
+    <div class="col">
+      <button type="button" [routerLink]="['../form/new']" class="btn btn-secondary pull-right"><i class="fa fa-plus"></i></button>
+    </div>
+  </div>
+  <date-filter (filtersSelected)="filterPeriod($event)" [filters]="filters.date"></date-filter>
+  <div class="container" style="margin-top:1em;margin-left:0;width:50%">
+    <table class="table table-hover table-sm">
+      <thead class="thead-inverse">
+        <tr class="text-center" >
+          <th style="width:2%;vertical-align:middle"><button class="btn btn-secondary btn-sm" (click)="eraseFilter()"><i class="fa fa-eraser"></i></button></th>
+          <th style="width:4%"><input type="text" [(ngModel)]="filters.magnets.magnetId" class="form-control" (change)="filter()"></th>
+          <th style="width:5%"><input type="text" [(ngModel)]="filters.magnets.datetime" class="form-control" (change)="filter()"></th>
+          <th style="width:5%"><input type="text" [(ngModel)]="filters.magnets.username" class="form-control" (change)="filter()"></th>
+          <th style="width:5%"><input type="text" [(ngModel)]="filters.magnets.workingProperly" class="form-control" (change)="filter()"></th>
+        </tr>
+        <tr >
+          <th></th>
+          <th>#</th>
+          <th>Date</th>
+          <th class="">Opérateur</th>
+          <th>Bon Fonctionnement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" [ngClass]="{canceled:magnets.state==2,editable:isAdmin}" *ngFor="let magnets of magnetsFiltered" [routerLink]="['../form/edit/'+magnets.magnetId]">
+          <td></td>
+          <td class="text-right">{{magnets.magnetId}}</td>
+          <td>{{moment(magnets.datetime).format("YYYY-MM-DD HH:mm")}}</td>
+          <td>{{magnets.username}}</td>
+          <td>{{magnets.workingProperly}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<h5 class="title">{{title}}</h5>
+<table class="table table-bordered table-sm table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>SKU</th>
+      <th>Quantité</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let order of orders;let i = index" class="order" [attr.packagingOrderId]="order.packagingOrderId" draggable="true" >
+      <td scope="row"></td>
+      <td>{{order.sku}}</td>
+      <td>{{order.quantity}}</td>
+    </tr>
+  </tbody>
+</table>

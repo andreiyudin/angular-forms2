@@ -1,0 +1,4 @@
+<app-order-form></app-order-form>
+<packaging-order-list  (updateOrders)="updateOrders($event)" [title]="'Emballeuse '+machine.machineId" [orders]="machine.orders" *ngFor="let machine of machines"></packaging-order-list>      
+<order-list [title]="'Commande à attribuer'" [orders]="ordersNotAssigned" id='unAssignedOrders'></order-list>      
+<order-list title="Commande terminées"></order-list>      

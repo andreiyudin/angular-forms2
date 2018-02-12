@@ -1,0 +1,38 @@
+.login{
+    width:25%;
+    border-color:lightgrey;
+    border-width:1px;
+    border-radius: 5px;   
+    border-style:solid;
+    padding:20px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-12.5%;
+    margin-top:-12.5%;
+
+}
+
+#page {
+    height:100%;    
+}
+
+.error{
+    border-color:indianred;
+    border-width:1px;
+    color:indianred;
+}
+
+.alert {
+    width:33%;
+    margin:auto;
+    text-align:center;
+    margin-top:1em;
+}
+
+.fa-close{
+    text-align: right;
+    cursor:pointer;
+}
+
+

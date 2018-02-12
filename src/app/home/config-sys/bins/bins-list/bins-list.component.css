@@ -1,0 +1,30 @@
+.form-control-xsm{
+    width:5em;
+}
+
+th{
+    text-align:center;
+}
+
+input{
+    text-align:right;
+}
+
+tr.completed  td{
+    background-color:#7EF482;
+}
+
+.uncompleted td{
+    background-color:#FE5C5C;
+}
+
+tr:hover{
+    cursor:pointer;
+}
+
+button{
+    margin-right:5px;
+}
+
+
+    

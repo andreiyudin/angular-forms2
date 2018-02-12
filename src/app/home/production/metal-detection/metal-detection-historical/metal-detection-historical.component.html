@@ -1,0 +1,60 @@
+<div class="container" style="width:100%;margin-top:1em">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+      <h3 class="text-center">Détection Métal - Historique</h3>
+    </div>
+    <div class="col">
+      <button type="button" [routerLink]="['../form/new']" class="btn btn-secondary pull-right"><i class="fa fa-plus"></i></button>
+      <button *ngIf="isAdmin" style="margin-right:10px" type="button" (click)="update()" class="btn btn-secondary pull-right"><i class="fa fa-certificate"></i></button>
+    </div>
+  </div>
+  <div>
+      <date-filter (filtersSelected)="filterPeriod($event)" [filters]="filters.date"></date-filter>
+  </div>
+  <div class="container" style="width:100%;margin-top:1em">
+    <table class="table table-sm"  [ngClass]="{'table-hover':isAdmin}">
+      <thead class="thead-inverse">
+        <tr class="text-center " >
+          <th style="width:5%;vertical-align:middle"><button class="btn btn-secondary btn-sm" (click)="eraseFilter()"><i class="fa fa-eraser"></i></button></th>
+          <th style="width:10%"><input type="text" [(ngModel)]="filters.metalDetection.metalDetectionEventId" class="form-control" (change)="filter()"></th>
+          <th style="width:10%"><input type="text" [(ngModel)]="filters.metalDetection.datetime" class="form-control" (change)="filter()"></th>
+          <th style="width:10%"><input type="text" [(ngModel)]="filters.metalDetection.username" class="form-control" (change)="filter()"></th>
+          <th style="width:10%"><input type="text" [(ngModel)]="filters.metalDetection.ferrous" class="form-control" (change)="filter()"></th>
+          <th style="width:10%"><input type="text" [(ngModel)]="filters.metalDetection.stainless" class="form-control" (change)="filter()"></th>
+          <th style="width:10%"><input type="text" [(ngModel)]="filters.metalDetection.metalLevel" class="form-control" (change)="filter()"></th>
+          <th style="width:10%"><input type="text" [(ngModel)]="filters.metalDetection.nbRejects" class="form-control" (change)="filter()"></th>
+          <th style="width:10%"><input type="text" [(ngModel)]="filters.metalDetection.auditedByUsername" class="form-control" (change)="filter()"></th>
+          <th ><input type="text" [(ngModel)]="filters.metalDetection.comments" class="form-control" (change)="filter()"></th>
+        </tr>
+        <tr >
+          <th></th>
+          <th>#</th>
+          <th>Date</th>
+          <th class="">Opérateur</th>
+          <th>Ferreux</th>
+          <th>Stainless</th>
+          <th>Niveau Métal</th>
+          <th>Nombre de Rejets</th>
+          <th>Commentaires</th>
+          <th>Audité Par</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" [ngClass]="{'editable':isAdmin,'canceled':metalDetection.state ==2}" *ngFor="let metalDetection of metalDetectionsFiltered" [routerLink]="['../form/edit/'+metalDetection.metalDetectionEventId]">
+          <td></td>
+          <td class="text-right">{{metalDetection.metalDetectionEventId}}</td>
+          <td>{{moment(metalDetection.datetime).format("YYYY-MM-DD HH:mm")}}</td>
+          <td>{{metalDetection.username}}</td>
+          <td>{{metalDetection.ferrous}}</td>
+          <td>{{metalDetection.stainless }}</td>
+          <td class="text-right">{{metalDetection.metalLevel}}</td>
+          <td class="text-right">{{metalDetection.nbRejects}}</td>
+          <td>{{metalDetection.comments}}</td>
+          <td>{{metalDetection.auditedByUsername}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<alert [alertMessage]="alertMessage"></alert>
+<div class="container" style="width:100%;margin-top:1em">
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-secondary pull-left" [ngClass]="{'btn-success':toUpdate==true}" (click)="save()">
+        <i class="fa f fa-save"></i>
+      </button>
+    </div>
+    <div class="col">
+      <h3 class="text-center">Bins</h3>
+    </div>
+    <div class="col">
+      <div class="pull-right">
+        <button type="button" class="btn btn-secondary btn-inactive" (click)="this.filters.inactive=!filters.inactive;filter()" [ngClass]="{'active':filters.inactive==true}">
+          <i class="fa fa-minus-circle"></i>
+        </button>
+        <button [routerLink]="['../form/new']" type="button btn-add" class="btn btn-secondary  btn-add">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+  </div>
+  <div class="container" style="margin-top:1em;margin:auto;width:20%">
+    <table class="table table-bordered table-sm">
+      <thead class="thead-inverse">
+        <tr class="text-center">
+          <th style="width:1%;vertical-align:middle">
+            <button class="btn btn-secondary btn-sm btn-erase" (click)="eraseFilter()" style="margin:0">
+              <i class="fa fa-eraser"></i>
+            </button>
+          </th>
+          <th style="width:95%">
+            <input type="text" [(ngModel)]="filters.binId" class="form-control" (change)="filter()">
+          </th>
+          <th style="width:95%">
+            <input type="text" [(ngModel)]="filters.locationDescription" class="form-control" (change)="filter()">
+          </th>
+          <tr>
+            <th></th>
+            <th class="">Bin Id</th>
+            <th class="">Localisation</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let bin of filteredBins" [ngClass]="{'canceled':bin.inactive}" draggable="true" [attr.position]="bin.position"
+          [routerLink]="['../form/'+bin.binId]" >
+          <td ></td>
+          <td  >{{bin.binId}}</td>
+          <td  >{{bin.locationDescription}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

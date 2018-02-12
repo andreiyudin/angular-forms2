@@ -1,0 +1,5 @@
+<div class="bordered context-menu" *ngIf="contextMenu.show" [style.top]="contextMenu.top" [style.left]="contextMenu.left" >
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of contextMenu.items" (click)="selectItem(item)">{{item.description}} </li>
+    </ul>
+</div>

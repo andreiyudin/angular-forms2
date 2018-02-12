@@ -1,0 +1,49 @@
+<div class="alert" [ngClass]="{'alert-success':alertMessage.type=='success','alert-danger':alertMessage.type=='danger'}"
+  role="alert" [hidden]="alertMessage.message==''">
+  <strong>{{alertMessage.message}}</strong>
+  <div class="pull-right">
+    <i class="fa fa-close " (click)="alertMessage.message=''"></i>
+  </div>
+</div>
+ 
+<div class="header">
+  <div class="col">
+
+  </div>
+  <div class="col">
+    <h3 class="text-center">Utilisateurs</h3>
+  </div>
+  <div class="col text-right">
+    <button class="btn btn-secondary" (click)="showInactive()" style="margin-right:0.5em" [ngClass]="{'active':filters.inactive}">
+      <i class="fa fa-minus-circle"></i>
+    </button>
+    <button class="btn btn-secondary" [routerLink]="['../form/new']">
+      <i class="fa fa-plus"></i>
+    </button>
+  </div>
+</div>
+<div class="container" style="margin-top:1em" style="width:33%">
+  <div>
+    <table class="table table-bordered table-hover table-condensed">
+      <thead class="thead-inverse">
+        <tr>
+          <th style="width:50%">Nom</th>
+          <th>Admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let user of filteredUsers; let i=index" [routerLink]="['../form/'+user.id]" [ngClass]="{'canceled':user.inactive !== false}">
+          <td>
+            {{user.username}}
+          </td>
+          <td>
+            {{user.admin ? 'Oui':'Non'}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<confirm-popup *ngIf="confirmPopup.show" [confirmPopup]="confirmPopup">
+  Voulez-vous supprimer l'utilisateur ?
+</confirm-popup>

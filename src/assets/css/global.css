@@ -1,0 +1,42 @@
+
+.bordered{
+    border-style:solid;
+    border-width:1px;
+    border-radius:4px;
+    border-color:lightgrey;   
+}
+
+.header .col{
+    width:33%;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+    display:inline-block;
+    vertical-align: middle;
+}
+
+input.ng-invalid.ng-touched{
+    border-color:#d9534f;
+}
+
+select.ng-invalid.ng-touched{
+    border-color:#d9534f;
+}
+
+.alert {
+    width:25%;
+    left:37.5%;
+    top:0;
+    z-index: 1000;
+    position:absolute;
+    text-align:center;
+    margin-top:0.5em;
+}
+
+tr.canceled > td{
+    text-decoration:line-through;
+    background-color:lightcoral;
+}
+
+.editable:hover{
+    cursor:pointer;
+}

@@ -1,0 +1,120 @@
+<form [formGroup]="orderForm" (ngSubmit)="save(orderForm)" novalidate>
+    <div class="container" style="width:100%;margin-top:1em">
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-secondary pull-left" [ngClass]="{'btn-success':orderForm.valid&&orderForm.dirty,'btn-secondary':orderForm.pristine,'btn-danger':!orderForm.valid&&orderForm.touched }">
+            <i class="fa f fa-save"></i>
+          </button>
+        </div>
+        <div class="col">
+          <h3 class="text-center">Ajouter/Éditer Commande</h3>
+        </div>
+        <div class="col">
+          <div class="pull-right">
+            <button type="button" class="btn btn-secondary btn-delete" (click)="delete()">
+              <i class="fa f fa-trash fa-lg"></i>
+            </button>
+            <button type="button" (click)="addForm()" class="btn btn-secondary btn-add">
+              <i class="fa fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label for="packer">*Emballeuse</label>
+                  <div>
+                    <select 
+                      id="packer" 
+                      formControlName="packer" 
+                      class="form-control">
+                      <option value="one">1</option>
+                      <option value="two">2</option>
+                      <option value="three">3</option>
+                      <option value="four">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="breadsPerPack">Pains par paquet</label>
+                  <input type="text" class="form-control" id="breadsPerPack" formControlName="breadsPerPack" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label for="products">*Produits</label>
+                  <input type="text" class="form-control" id="products" formControlName="products">
+                </div>
+                <div class="col-sm-6">
+                  <label for="area">Aire</label>
+                  <input type="text" class="form-control" id="area" formControlName="area" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label for="quantityBreads">*Quantité de pains</label>
+                  <input type="text" class="form-control" id="quantityBreads" formControlName="quantityBreads">
+                </div>
+                <div class="col-sm-6">
+                    <label for="bagType">Type de sac</label>
+                    <input type="text" class="form-control" id="bagType" formControlName="bagType" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="priority">Priorite</label>
+                    <input type="text" class="form-control" id="priority" formControlName="priority">
+                </div>
+                <div class="col-sm-6">
+                    <label for="patron">Patron</label>
+                    <input type="text" class="form-control" id="patron" formControlName="patron" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="colorKwikLok">Couleur du Kwik-Lok</label>
+                    <input type="text" class="form-control" id="colorKwikLok" formControlName="colorKwikLok">
+                </div>
+                <div class="col-sm-6">
+                    <label for="variety">Variété</label>
+                    <input type="text" class="form-control" id="variety" formControlName="variety" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="dateProduction">Date de production</label>
+                    <input type="date" class="form-control" id="dateProduction" formControlName="dateProduction">
+                </div>
+                <div class="col-sm-6">
+                    <label for="recipe">Recette</label>
+                    <input type="text" class="form-control" id="recipe" formControlName="recipe" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="saleDate">Date de vente</label>
+                    <input type="date" class="form-control" id="saleDate" formControlName="saleDate">
+                </div>
+                <div class="col-sm-6">
+                    <label for="numberSlices">Nb de tranches</label>
+                    <input type="text" class="form-control" id="numberSlices" formControlName="numberSlices" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="dateFreshness">Date de fraicheur</label>
+                    <input type="date" class="form-control" id="dateFreshness" formControlName="dateFreshness">
+                </div>
+                <div class="col-sm-6">
+                    <label for="sliceThicknesses">Épaisseurs des tranches</label>
+                    <input type="text" class="form-control" id="sliceThicknesses" formControlName="sliceThicknesses" readonly>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</form>

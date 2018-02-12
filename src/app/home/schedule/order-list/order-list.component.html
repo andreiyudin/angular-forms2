@@ -1,0 +1,19 @@
+<h5 class="title">{{title}}</h5>
+<table class="table table-bordered table-sm table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>SKU</th>
+      <th>Quantité</th>
+      <th>Quantité Non Assignée</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let order of orders" class="order">
+      <th scope="row"></th>
+      <td>{{order.sku}}</td>
+      <td>{{order.quantity}}</td>
+      <td>{{order.notAssignedQty}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,36 @@
+.my-popover{
+   color:white;
+   position:fixed;
+   width:5em;
+   z-index:3000;
+}
+
+.my-popover-content {
+    background-color:black;
+}
+
+.arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+    border-right:10px solid blue; 
+  }
+
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    margin-top:-2px;
+    border-top: 10px solid black;
+    vertical-align:top;
+  }
+
+  .my-popover .arrow-left{
+      display:inline-block;
+  }
+
+  .my-popover span{
+    display:inline-block;
+}

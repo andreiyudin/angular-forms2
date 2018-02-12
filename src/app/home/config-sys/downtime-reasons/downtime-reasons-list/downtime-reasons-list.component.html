@@ -1,0 +1,53 @@
+<alert [alertMessage]="alertMessage"></alert>
+<div class="container" style="width:100%;margin-top:1em">
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-secondary pull-left" [ngClass]="{'btn-success':toUpdate==true}" (click)="save()">
+        <i class="fa f fa-save"></i>
+      </button>
+    </div>
+    <div class="col">
+      <h3 class="text-center">Cause Temps d'arrêts</h3>
+    </div>
+    <div class="col">
+      <div class="pull-right">
+        <button [routerLink]="['../form/new']" type="button btn-add" class="btn btn-secondary  btn-add">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+  </div>
+  <div class="container" style="margin-top:1em;margin:auto;width:33%">
+    <table class="table table-bordered table-sm table-hover">
+      <thead class="thead-inverse">
+        <tr class="text-center">
+          <th style="width:1%;vertical-align:middle">
+            <button class="btn btn-secondary btn-sm btn-erase" (click)="eraseFilter()" style="margin:0">
+              <i class="fa fa-eraser"></i>
+            </button>
+          </th>
+          <th style="width:50%">
+            <input type="text" [(ngModel)]="filters.description" class="form-control" (change)="filter()">
+          </th>
+          <th style="width:25%">
+            <input type="text" [(ngModel)]="filters.explanation" class="form-control" (change)="filter()">
+          </th>
+          <tr>
+            <th></th>
+            <th class="">Description</th>
+            <th class="">Explication</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let downtimeReason of filteredDowntimeReasons" draggable="true" [attr.position]="downtimeReason.position"
+          [ngClass]="{'canceled':downtimeReason.inactive}" [routerLink]="['../form/'+downtimeReason.downtimeReasonId]">
+          <td ></td>
+          <td>{{downtimeReason.description}}</td>
+          <td>{{downtimeReason.explanation}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

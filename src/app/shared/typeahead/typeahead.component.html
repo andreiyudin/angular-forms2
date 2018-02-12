@@ -1,0 +1,9 @@
+
+  <input [disabled]="typeaheadDisabled" class="form-control" type="text" (keyup)="keyUp(searchTxt)" (blur)="onBlur(event)" [(ngModel)]="searchTxt"/>
+  <div style="width:100%;position:relative;">
+      <ul class="bordered form-control" *ngIf="this.filteredItems.length>0" >
+          <li *ngFor="let item of filteredItems" (click)="itemClick(item)">{{item[config.shownProperty]}}</li>
+        </ul>
+  </div>
+
+ 
